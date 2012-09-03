@@ -52,4 +52,16 @@ describe "Static pages" do
     end
   end
 
+  it "should have working links" do
+    visit root_path
+    click_link 'Help'
+    page.should have_selector 'title', text: full_title('Help')
+    click_link 'About'
+    page.should have_selector 'title', text: full_title('About Us')
+    click_link 'Contact'
+    page.should have_selector 'title', text: full_title('Contact')
+    click_link 'sample app'
+    page.should have_selector 'h1', text: 'Sample App'
+  end
+
 end
