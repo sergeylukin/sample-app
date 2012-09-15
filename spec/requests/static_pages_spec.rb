@@ -35,6 +35,8 @@ describe "Static pages" do
 
   it "should have working links" do
     visit root_path
+    click_link 'Sign In'
+    page.should have_selector 'title', text: full_title('Sign in')
     click_link 'Help'
     page.should have_selector 'title', text: full_title('Help')
     click_link 'About'
